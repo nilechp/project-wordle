@@ -7,8 +7,9 @@ html {
   --game-spacing: 32px;
   --header-height: 4rem;
 
-  --color-success: hsl(150deg 70% 30%);
-  --color-warning: hsl(50deg 100% 30%);
+  --color-success: rgb(106, 170, 100);
+  --color-missing: rgb(120, 124, 126);
+  --color-warning: rgb(201, 180, 88);
   --color-error: hsl(0deg 70% 45%);
   --color-gray-100: hsl(0deg 0% 10%);
   --color-gray-300: hsl(0deg 0% 25%);
@@ -105,6 +106,7 @@ h1 {
   border: 2px solid var(--color-gray-700);
   border-radius: var(--radius);
   font-size: 2rem;
+  font-weight: bolder
 }
 
 /*
@@ -114,12 +116,15 @@ h1 {
 .guess:first-of-type .cell:first-of-type {
   --radius: 4px 0px 0px 0px;
 }
+
 .guess:first-of-type .cell:last-of-type {
   --radius: 0px 4px 0px 0px;
 }
+
 .guess:last-of-type .cell:last-of-type {
   --radius: 0px 0px 4px 0px;
 }
+
 .guess:last-of-type .cell:first-of-type {
   --radius: 0px 0px 0px 4px;
 }
@@ -129,11 +134,13 @@ h1 {
   border-color: var(--color-success);
   color: white;
 }
+
 .cell.incorrect {
-  background: var(--color-gray-300);
-  border-color: var(--color-gray-300);
+  background: var(--color-missing);
+  border-color: var(--color-missing);
   color: white;
 }
+
 .cell.misplaced {
   background: var(--color-warning);
   border-color: var(--color-warning);
@@ -180,6 +187,7 @@ h1 {
   background: var(--color-success);
   color: white;
 }
+
 .sad.banner {
   background: var(--color-error);
   color: white;
@@ -208,6 +216,7 @@ h1 {
   border-radius: 8px;
   padding: 24px 32px;
 }
+
 .modal-close-btn {
   position: absolute;
   top: 0;
@@ -215,6 +224,7 @@ h1 {
   padding: 16px;
   cursor: pointer;
 }
+
 .modal-title {
   margin-bottom: 0.5em;
 }
@@ -226,7 +236,76 @@ h1 {
   from {
     transform: translateY(100%);
   }
+
   to {
     transform: translateY(0%);
   }
+}
+
+.keyboard {
+  display: grid;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.key {
+  width: 40px;
+  height: 60px;
+  margin: 2px;
+  border: none;
+  background-color: #d3d6da;
+  color: #000;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  /* font-family: "nyt-franklin"; */
+  font-size: 1.25em;
+}
+
+.key:active {
+  background-color: #a8a9ab;
+}
+
+.key.wide {
+  width: 60px;
+}
+
+.key.correct {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.key.incorrect {
+  background: var(--color-missing);
+  border-color: var(--color-missing);
+  color: white;
+}
+
+.key.misplaced {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
+
+.restart {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 8px;
+  /* Center horizontally in parent */
+  margin: 0 auto;
+  padding-top: 24px
 }
